@@ -1,8 +1,8 @@
-# digitalTradingBinder
-This is going to be my first kivy project, and my first major personal project since graduating!
-
+# Digital Trading Binder
+## This is going to be my first kivy project, and my first major personal project since graduating!
 Post-graduation (May 7th), I have made it my goal to learn python since my university didn't teach us any of it. After using multiple resources to learn the fundamentals, I decided to think of a fun project to practice my new skills.
 
+## My idea:
 I am a big fan of trading card games, and have been for as long as I can remember. I grew up playing Yu-Gi-Oh! with my two brothers and my love for card games has only grown! I do my best to attend my local game shop's get-togethers for playing my favorite card games. A common occurrence is for people to try to trade for the cards they're missing in their collections (after all, they're trading card games!!). Trading usually starts in one of two ways:
 
 * Do you have any copies of X?
@@ -29,4 +29,4 @@ I am not sure how I will host the server yet, so I will be doing a lot of resear
 
 I am very excited to get started!
 
-- Ross Rippee, 5/19/22
+# - Ross Rippee, 5/19/22

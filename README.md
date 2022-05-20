@@ -1,8 +1,8 @@
-# digitalTradingBinder
-This is going to be my first kivy project, and my first major personal project since graduating!
-
+# Digital Trading Binder
+## This is going to be my first kivy project, and my first major personal project since graduating!
 Post-graduation (May 7th), I have made it my goal to learn python since my university didn't teach us any of it. After using multiple resources to learn the fundamentals, I decided to think of a fun project to practice my new skills.
 
+## My idea:
 I am a big fan of trading card games, and have been for as long as I can remember. I grew up playing Yu-Gi-Oh! with my two brothers and my love for card games has only grown! I do my best to attend my local game shop's get-togethers for playing my favorite card games. A common occurrence is for people to try to trade for the cards they're missing in their collections (after all, they're trading card games!!). Trading usually starts in one of two ways:
 
 * Do you have any copies of X?
@@ -23,10 +23,10 @@ If my friend wants to know if I have Lucemon, rather than having to visually sca
 
 Additionally, I would like to be able to have a "wishlist" feature, where a user could come up with a list of the cards they do not have and would like to trade for. That way, whenever they look at another user's collection, they can simply press a button to check whether or not that collection contains any of the cards in their wishlist. I would also like to have a "trading group" feature, where users can invite other users to a trading group. This would let you check your friends' collections without having to search their usernames each time. Also, whenever a user in that group updates their collection, it should send a notification to the other users in that group that someone in their trading group obtained a card if it's on their wishlist.
 
-Since I want this to be an opportunity to hone my skills developing an application using python, I will be using the kivy library to make this mobile app. I currently know only the basics of kivy, so I will also use this as an opportunity to learn about kivy. I also have little experience working with databases, so I will use this as an opportunity to learn about starting and managing a database. It will also be great for practicing queries! For now I will be using sqlite3 since it is part of python's built-in library, but my goal will be to transition to an SQL library.
+Since I want this to be an opportunity to hone my skills developing an application using python, I will be using the kivy library to make this mobile app. I currently know only the basics of kivy, so I will also use this as an opportunity to learn about kivy. I also have little experience working with databases, so I will use this as an opportunity to learn about starting and managing a database. It will also be great for practicing queries! For now I will be using sqlite3 since it is part of python's built-in library, but my goal will be to transition to an SQL database.
 
 I am not sure how I will host the server yet, so I will be doing a lot of research on that as well.
 
 I am very excited to get started!
 
-- Ross Rippee, 5/19/22
+# - Ross Rippee, 5/19/22

@@ -1,13 +1,22 @@
-<InitialDisplay>
+<InitialDisplay>:
+
+	username: username
+	password: password
+	instructions: instructions
+
 	GridLayout:
 		cols: 1
 		size: root.width, root.height
 
 		Label:
 			text: "Virtual Trading Binder"
+			color: 1, 0, 1, 1
 
 		Label:
+			id: instructions
 			text: "Please log in or create a new account!"
+			color: 0, 1, 0, 1
+			halign: "center"
 
 		GridLayout:
 			cols: 2
@@ -16,16 +25,22 @@
 				text: "Username: "
 
 			TextInput:
+				id: username
 				multiline: False
 
 			Label:
 				text: "Password: "
 
 			TextInput:
+				id: password
 				multiline: False
 
 		Button:
 			text: "Log in"
+			on_press: root.attemptLogin()
+			color: 0, 0, 1, 1
 
 		Button:
-			text: "Create a new account"		
+			text: "Create a new account"
+			on_press: root.newAccountScreen()
+			color: 0, 0, 1, 1		

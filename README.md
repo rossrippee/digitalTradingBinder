@@ -31,6 +31,28 @@ I am very excited to get started!
 
 # - Ross Rippee, 5/19/22
 
-# Sources used during development:
+# Big Update 5/22/22
+
+I toyed around with the app a lot over the weekend to get more familiar with the kivy API. I ended up finding out about the ScreenManager and Screen widgets which made the process of switching from one screen to another so much easier that I reworked the entire project to use those instead.
+
+## What is there now?
+* A log in screen with a username text input field and password text input field with three buttons:
+** Log in: Upon success simply says "Successfully logged in!". Upon failure, lets the user know it was unsuccessful.
+** Create a new account: redirects the user to an account creation screen.
+** Forgot your password: redirects the user to an account recovery screen.
+* An account creation screen with username, email, and password text input fields and two buttons:
+** Create account: Upon success, redirects the user to the log in screen and lets them know the account was made successfully so they're ready to log in. Upon failure, the user is asked to try again.
+** Back to home screen: Go back to the log in screen without making a new account
+* An account recovery screen with a username text input field and email text input field with two buttons:
+** Send recovery email: Upon success, redirects the user to the log in screen and lets them know an email was sent to them for resetting their password (not yet implemented). Upon failure, lets the user know they gave the wrong email.
+** Back to log in screen: Go back to the log in screen without sending an account recovery email.
+
+## Known issues
+The account creation screen isn't good at detecting whether or not a fake email address has been given. The regular expression needs tweaking.
+
+## What's next?
+The goal is to make user-dependent databases for the cards they have and the quantity of cards they have.
+
+# Sources used during development (so far...):
 * Tech With Tim (YouTube channel) Kivy Tutorials Python (Playlist): (https://www.youtube.com/watch?v=bMHK6NDVlCM&list=PLzMcBGfZo4-kSJVMyYeOQ8CXJ3z1k7gHn)
 * Codemy.com (YouTube channel) Using SQLite3 Database With Kivy - Python Kivy GUI Tutorial #55 (video): (https://www.youtube.com/watch?v=X2MkC1ru3cQ)

@@ -152,4 +152,33 @@
 		Button:
 			text: "Back to log in screen"
 			on_press: root.backToLogInScreen()
-			color: 0, 0, 1, 1		
+			color: 0, 0, 1, 1
+
+
+<DashboardDisplay>:
+
+	instructions: instructions
+
+	GridLayout:
+		cols: 1
+		size: root.width, root.height
+
+		Label:
+			text: "Virtual Trading Binder"
+			color: 1, 0, 1, 1
+
+		Label:
+			id: instructions
+			text: "Welcome username!"
+			color: 0, 1, 0, 1
+			halign: "center"
+
+		Button:
+			text: "View or edit your collections"
+			on_press: root.logOut()
+			color: 0, 0, 1, 1
+
+		Button:
+			text: "Log out"
+			on_press: root.logOut()
+			color: 0, 0, 1, 1

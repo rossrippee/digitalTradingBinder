@@ -4,6 +4,7 @@ from kivy.uix.screenmanager import Screen     # This lets us represent the possi
 import sqlite3                                # This is for python's built-in database manager
 import createaccount                          # This defines the create account screen
 import recoveryemail                          # This defines the recovery email screen (forgot my password)
+import dashboard
 
 class LogInDisplay(Screen):
     """This defines the functionality of the log in screen, which will let the user enter a username and password to attempt to login or give them the option to
@@ -48,11 +49,13 @@ Either the given username does not exist yet or the given password was incorrect
 Please try again or create a new account!'''
             # This makes the text red, so hopefully that will catch the user's attention!
             self.setInstructionsColor(1, 0, 0)
-        # If there is a record, check if the given password matches the expected password. If so, let the user move onto their account
+        # If there is a record, check if the given password matches the expected password. If so, let the user move onto their account's dashboard
         elif result[0][0] == str(givenPassword):
-            # For now, just let the user know that they made a successful login
-            self.instructions.text = '''Successfully logged in!'''
-            self.setInstructionsColor(0, 1, 0)
+            # Make a new dashboard screen, passing in the given username
+            self.newDashboardScreen(givenUsername)
+            # Remove the log in screen from the screen manager and delete this instance for efficiency
+            self.manager.remove_widget(self)
+            del self
         # This means the given password did not match the expected password. Let them know that either the given username does not exist or the password was wrong
         else:
             self.instructions.text = '''Log in attempt failed!
@@ -78,6 +81,20 @@ Please try again or create a new account!'''
         self.manager.add_widget(createAccountDisplay)
         # This switches the screen to the new create account screen
         self.manager.current = 'create_account'
+        
+    def newDashboardScreen(self, username):
+        """If the user successfully logs in, this function will make a dashboard screen and switch the display to that screen, passing in the account's username"""
+        # It feels more natural to clear the input text before leaving so there is no input text when the user returns to the log in screen
+        self.username.text = ''
+        self.password.text = ''
+        # This adds a dashboard screen to the screen manager
+        dashboardDisplay = dashboard.DashboardDisplay(name='dashboard')
+        # This passes the account's username to the dashboard screen
+        dashboardDisplay.setUsername(username)
+        # This adds the dashboard display screen to the screen manager's screens
+        self.manager.add_widget(dashboardDisplay)
+        # This switches the screen to the new dashboard screen
+        self.manager.current = 'dashboard'
         
     def newRecoveryEmailScreen(self):
         """If the user presses the Forgot your password button, this function will make a recovery email screen and switch the display to that screen"""

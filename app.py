@@ -6,6 +6,7 @@ import sqlite3                                      # This is for python's built
 import login                                        # This defines the log in screen
 import createaccount                                # This defines the create account screen
 import recoveryemail                                # This defines the recovery email screen (forgot my password)
+import dashboard
 
 class MyApp(App):
     """This is going to contain the code for the app"""

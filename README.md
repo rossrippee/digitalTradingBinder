@@ -30,3 +30,7 @@ I am not sure how I will host the server yet, so I will be doing a lot of resear
 I am very excited to get started!
 
 # - Ross Rippee, 5/19/22
+
+# Sources used during development:
+* Tech With Tim (YouTube channel) Kivy Tutorials Python (Playlist): (https://www.youtube.com/watch?v=bMHK6NDVlCM&list=PLzMcBGfZo4-kSJVMyYeOQ8CXJ3z1k7gHn)
+* Codemy.com (YouTube channel) Using SQLite3 Database With Kivy - Python Kivy GUI Tutorial #55 (video): (https://www.youtube.com/watch?v=X2MkC1ru3cQ)

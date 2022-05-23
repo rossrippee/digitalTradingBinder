@@ -1,4 +1,4 @@
-<InitialDisplay>:
+<LogInDisplay>:
 
 	username: username
 	password: password
@@ -33,6 +33,7 @@
 
 			TextInput:
 				id: password
+				password: True
 				multiline: False
 
 		Button:
@@ -43,4 +44,112 @@
 		Button:
 			text: "Create a new account"
 			on_press: root.newAccountScreen()
+			color: 0, 0, 1, 1
+
+		Button:
+			text: "Forgot your password"
+			on_press: root.newRecoveryEmailScreen()
+			color: 0, 0, 1, 1
+
+<CreateAccountDisplay>:
+
+	username: username
+	email: email
+	password: password
+	instructions: instructions
+
+	GridLayout:
+		cols: 1
+		size: root.width, root.height
+
+		Label:
+			text: "Virtual Trading Binder"
+			color: 1, 0, 1, 1
+
+		Label:
+			id: instructions
+			text: "Please create a new account!"
+			color: 0, 1, 0, 1
+			halign: "center"
+
+		GridLayout:
+			cols: 2
+
+			Label: 
+				text: "Username: "
+
+			TextInput:
+				id: username
+				multiline: False
+
+			Label: 
+				text: "Email: "
+
+			TextInput:
+				id: email
+				multiline: False
+
+			Label:
+				text: "Password: "
+
+			TextInput:
+				id: password
+				password: True
+				multiline: False
+
+		Button:
+			text: "Create account"
+			on_press: root.attemptAccountCreation()
+			color: 0, 0, 1, 1
+
+		Button:
+			text: "Back to home screen"
+			on_press: root.backToLogInScreen()
+			color: 0, 0, 1, 1		
+
+<RecoveryEmailDisplay>:
+
+	username: username
+	email: email
+	instructions: instructions
+
+	GridLayout:
+		cols: 1
+		size: root.width, root.height
+
+		Label:
+			text: "Virtual Trading Binder"
+			color: 1, 0, 1, 1
+
+		Label:
+			id: instructions
+			text: "Please enter your username and the email that was used when you made the account."
+			color: 0, 1, 0, 1
+			halign: "center"
+
+		GridLayout:
+			cols: 2
+
+			Label: 
+				text: "Username: "
+
+			TextInput:
+				id: username
+				multiline: False
+
+			Label: 
+				text: "Email: "
+
+			TextInput:
+				id: email
+				multiline: False
+
+		Button:
+			text: "Send recovery email"
+			on_press: root.attemptSendRecoveryEmail()
+			color: 0, 0, 1, 1
+
+		Button:
+			text: "Back to log in screen"
+			on_press: root.backToLogInScreen()
 			color: 0, 0, 1, 1		

@@ -175,10 +175,44 @@
 
 		Button:
 			text: "View or edit your collections"
-			on_press: root.logOut()
+			on_press: root.newCollectionsScreen()
 			color: 0, 0, 1, 1
 
 		Button:
 			text: "Log out"
 			on_press: root.logOut()
+			color: 0, 0, 1, 1
+
+
+<CollectionsDisplay>:
+
+	instructions: instructions
+	collectionContainer: collectionContainer
+
+	GridLayout:
+		cols: 1
+		size: root.width, root.height
+
+		Label:
+			text: "Virtual Trading Binder"
+			color: 1, 0, 1, 1
+
+		Label:
+			id: instructions
+			text: "These are your collections!\nSelect one of your existing collections to make changes to it or simply view it.\nYou can also start a new collection with the Add a new collection button!"
+			color: 0, 1, 0, 1
+			halign: "center"
+
+		GridLayout:
+			id: collectionContainer
+			cols: 1
+
+		Button:
+			text: "Add a new collection"
+			on_press: root.chooseGame()
+			color: 0, 0, 1, 1
+
+		Button:
+			text: "Go back to the dashboard"
+			on_press: root.backToDashboard()
 			color: 0, 0, 1, 1

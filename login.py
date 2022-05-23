@@ -4,7 +4,7 @@ from kivy.uix.screenmanager import Screen     # This lets us represent the possi
 import sqlite3                                # This is for python's built-in database manager
 import createaccount                          # This defines the create account screen
 import recoveryemail                          # This defines the recovery email screen (forgot my password)
-import dashboard
+import dashboard                              # This defines the dashboard screen
 
 class LogInDisplay(Screen):
     """This defines the functionality of the log in screen, which will let the user enter a username and password to attempt to login or give them the option to

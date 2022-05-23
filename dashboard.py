@@ -1,8 +1,8 @@
 import kivy                                   # The kivy library is not built into python
 from kivy.properties import ObjectProperty    # This lets us access values defined in the kv file
 from kivy.uix.screenmanager import Screen     # This lets us represent the possible displays as screens that can be held onto by a screen manager
-import sqlite3                                # This is for python's built-in database manager
-import login                                  # This defines the log in screen 
+import login                                  # This defines the log in screen
+import collectionscontainer
 
 class DashboardDisplay(Screen):
     """This defines the functionality of the dashboard screen, which will let the user view/edit their collection or log out"""
@@ -10,6 +10,11 @@ class DashboardDisplay(Screen):
     instructions = ObjectProperty(None)
     # This will let us keep track of the user's username during their session
     username = None
+    
+    def build(self):
+        """This is automatically called whenever the object is instantiated. It creates the display based on the definition found in the kv file and returns it"""
+        return Dashboard()
+    
     def logOut(self):
         """If the user presses the Log out button, this function will switch the display back to the log in screen and delete the dashboard screen"""
         # Clear everything before leaving just to be safe
@@ -23,10 +28,17 @@ class DashboardDisplay(Screen):
         self.manager.remove_widget(self)
         # This deletes this instance for efficiency
         del self
-    
-    def build(self):
-        """This is automatically called whenever the object is instantiated. It creates the display based on the definition found in the kv file and returns it"""
-        return Dashboard()
+        
+    def newCollectionsScreen(self):
+        """If the user successfully logs in, this function will make a dashboard screen and switch the display to that screen, passing in the account's username"""
+        # This adds a collections screen to the screen manager
+        collectionsDisplay = collectionscontainer.CollectionsDisplay(name='collections')
+        # This passes the account's username to the collections screen
+        collectionsDisplay.setUsername(self.username)
+        # This adds the dashboard display screen to the screen manager's screens
+        self.manager.add_widget(collectionsDisplay)
+        # This switches the screen to the new dashboard screen
+        self.manager.current = 'collections'
     
     def setUsername(self, newUsername):
         """This is called whenever a user successfully logs in. The username used to log in is passed into this dashboard instance so we know who logged in.

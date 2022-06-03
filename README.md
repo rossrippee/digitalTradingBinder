@@ -24,7 +24,7 @@ If my friend wants to know if I have Lucemon, rather than having to visually sca
 
 Additionally, I would like to give the users a "wishlist" feature, where a user could come up with a list of the cards they do not have and would like to trade for. That way, whenever they look at another user's collection, they can simply check whether or not someone's collection contains any of the cards in their wishlist. I would also like to have a "trading group" feature, where users can invite other users to a trading group. This would let you check your friends' collections without having to search their usernames each time. Also, whenever a user in that group updates their collection, it should send a notification to the other users in that group that someone in their trading group obtained a card if it's in their wishlist.
 
-### The how
+### The "how"
 Since I want this to be an opportunity to hone my skills developing an application using python, I will be using the kivy library for this project. Kivy is used to define what will be on the phone screen. It is implemented in python and meant to be used with python. I am also temporarily using sqlite3, python's built-in serverless database engine. I will transition to an SQL database hosted on a server when I'm ready to deploy the application and share it with my friends at my local game store.
 
 ## What is there now?

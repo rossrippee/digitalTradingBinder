@@ -62,6 +62,6 @@ python app.py
 
 As mentioned earlier, this project uses sqlite3, which is not connected to a server! This application is currently purely local to your machine. Therefore it is perfectly safe to make an account with a fake email and start exploring the application!
 
-## Sources used during development (so far...):
+## Sources used during development (so far)
 * Tech With Tim (YouTube channel) Kivy Tutorials Python (Playlist): (https://www.youtube.com/watch?v=bMHK6NDVlCM&list=PLzMcBGfZo4-kSJVMyYeOQ8CXJ3z1k7gHn)
 * Codemy.com (YouTube channel) Using SQLite3 Database With Kivy - Python Kivy GUI Tutorial #55 (video): (https://www.youtube.com/watch?v=X2MkC1ru3cQ)

@@ -1,16 +1,17 @@
 # Digital Trading Binder
-## This is going to be my first kivy project, and my first major personal project since graduating!
-Post-graduation (May 7th), I have made it my goal to learn python since my university didn't teach us any of it. After using multiple resources to learn the fundamentals, I decided to think of a fun project to practice my new skills.
+## What is this?
+### This is my first kivy project and my first major personal project since graduating
+Post-graduation (May 7th), I have made it my goal to learn python since I did not take electives at my university that taught the language. After using many tutorials to learn the fundamentals, I decided to think of a fun project to practice my new skills.
 
-## My idea:
-I am a big fan of trading card games, and have been for as long as I can remember. I grew up playing Yu-Gi-Oh! with my two brothers and my love for card games has only grown! I do my best to attend my local game shop's get-togethers for playing my favorite card games. A common occurrence is for people to try to trade for the cards they're missing in their collections (after all, they're trading card games!!). Trading usually starts in one of two ways:
+### My idea:
+I am a big fan of trading card games, and have been playing them since I've known how to read. I grew up playing Yu-Gi-Oh! with my two brothers. I attend my local game store's events for playing my favorite card games with my local community. A common occurrence is for people to try to trade for the cards they're missing in their collections (after all, they're trading card games!!). Trading usually starts in one of two ways:
 
 * Do you have any copies of X?
 * Can I look through your trading binder?
 
-There are some major issues with the traditional system of trading. Card collectors usually have hundreds, if not thousands, of cards in their collections! If they are asked if they have a specific card, they have to think hard about whether or not they do. It's easy to lose track of what all you have when you have so much! It is also possible that they will misremember because they had a copy and either lost it, already traded it, or sold it but forgot that they did! On the other hand, simply looking through a trading binder will not be the best solution, because no binder is big enough to carry a collector's entire collection! They may not have the card in that binder, but the chances are they could have it at home.
+There are some major issues with the traditional system of trading. Card collectors usually have hundreds, if not thousands, of cards in their collections! If they are asked if they have a specific card, they have to think hard about whether or not they do. It's easy to lose track of what all you have when you have so much. It is also possible that they will misremember because they had a copy and either lost it, already traded it, or sold it but forgot that they did. On the other hand, simply looking through a trading binder will not be the best solution, because no binder is big enough to carry a collector's entire collection. They may not have the card in that binder, but they could have it at home.
 
-I would like to have an app where you can store your collection of cards. But what good would that be unless you could share your collection with someone else?! So I would like to have the ability to save your collection to your own username, and have the ability to search through the colleciton saved under someone else's username. When looking through a collection of cards, I want there to be a method of filtering through the collection to try to find a specific card or a card that fits into a given category. For example:
+I would like to have an app that makes trading into an easier process. This requires the ability to save your collection to your own username, and having the ability to search through the colleciton under someone else's username. Part of making it an easier process would be having a method of filtering through the collections to try to find a specific card or a card that fits into a given category. For example:
 
 Say my Digimon Trading Card collection contains...
 
@@ -19,40 +20,48 @@ Say my Digimon Trading Card collection contains...
 * Pulsemon, BT6-033
 * Jokermon, BT5-078
 
-If my friend wants to know if I have Lucemon, rather than having to visually scan my collection, they should be able to search for "Lucemon" and see the copies that I own. As another example, if my friend wants to know what digimon cards I have that are colored purple, they should be able to add a filter for the color purple and see that I have Jokermon.
+If my friend wants to know if I have Lucemon, rather than having to visually scan my collection, they should be able to search for "Lucemon" and see the copies that I own. As another example, if my friend wants to know what digimon cards I have from the latest set (BT7), they should be able to add a filter for the BT7 and see that I have MameTyramon.
 
-Additionally, I would like to be able to have a "wishlist" feature, where a user could come up with a list of the cards they do not have and would like to trade for. That way, whenever they look at another user's collection, they can simply press a button to check whether or not that collection contains any of the cards in their wishlist. I would also like to have a "trading group" feature, where users can invite other users to a trading group. This would let you check your friends' collections without having to search their usernames each time. Also, whenever a user in that group updates their collection, it should send a notification to the other users in that group that someone in their trading group obtained a card if it's on their wishlist.
+Additionally, I would like to give the users a "wishlist" feature, where a user could come up with a list of the cards they do not have and would like to trade for. That way, whenever they look at another user's collection, they can simply check whether or not someone's collection contains any of the cards in their wishlist. I would also like to have a "trading group" feature, where users can invite other users to a trading group. This would let you check your friends' collections without having to search their usernames each time. Also, whenever a user in that group updates their collection, it should send a notification to the other users in that group that someone in their trading group obtained a card if it's in their wishlist.
 
-Since I want this to be an opportunity to hone my skills developing an application using python, I will be using the kivy library to make this mobile app. I currently know only the basics of kivy, so I will also use this as an opportunity to learn about kivy. I also have little experience working with databases, so I will use this as an opportunity to learn about starting and managing a database. It will also be great for practicing queries! For now I will be using sqlite3 since it is part of python's built-in library, but my goal will be to transition to an SQL database.
-
-I am not sure how I will host the server yet, so I will be doing a lot of research on that as well.
-
-I am very excited to get started!
-
-# - Ross Rippee, 5/19/22
-
-# Big Update 5/22/22
-
-I toyed around with the app a lot over the weekend to get more familiar with the kivy API. I ended up finding out about the ScreenManager and Screen widgets which made the process of switching from one screen to another so much easier that I reworked the entire project to use those instead.
+### The how
+Since I want this to be an opportunity to hone my skills developing an application using python, I will be using the kivy library for this project. Kivy is used to define what will be on the phone screen. It is implemented in python and meant to be used with python. I am also temporarily using sqlite3, python's built-in serverless database engine. I will transition to an SQL database hosted on a server when I'm ready to deploy the application and share it with my friends at my local game store.
 
 ## What is there now?
-* A log in screen with a username text input field and password text input field with three buttons:
-** Log in: Upon success simply says "Successfully logged in!". Upon failure, lets the user know it was unsuccessful.
-** Create a new account: redirects the user to an account creation screen.
-** Forgot your password: redirects the user to an account recovery screen.
-* An account creation screen with username, email, and password text input fields and two buttons:
-** Create account: Upon success, redirects the user to the log in screen and lets them know the account was made successfully so they're ready to log in. Upon failure, the user is asked to try again.
-** Back to home screen: Go back to the log in screen without making a new account
-* An account recovery screen with a username text input field and email text input field with two buttons:
-** Send recovery email: Upon success, redirects the user to the log in screen and lets them know an email was sent to them for resetting their password (not yet implemented). Upon failure, lets the user know they gave the wrong email.
-** Back to log in screen: Go back to the log in screen without sending an account recovery email.
+* A 'log in' screen, 'create account' screen, and 'forgot password' screen for associating your collection with a username
+* A 'dashboard' screen where you interact with the app. Currently, it only gives you the option of viewing/editing your collection
+* A 'collections' screen that displays the different collections you currently have stored (for conveniently separating your cards based on which game they're from). It also gives you the option of adding a new collection. The collections can be tapped to view or edit the cards stored in them
+* A 'collection viewer' screen that displays the cards stored in your selected collection. It can be searched through or filtered by set. There is also a button for adding cards (to be implemented)
 
 ## Known issues
-The account creation screen isn't good at detecting whether or not a fake email address has been given. The regular expression needs tweaking.
+* The account creation screen isn't good at detecting whether or not a fake email address has been given. The regular expression needs tweaking
 
-## What's next?
-The goal is to make user-dependent databases for the cards they have and the quantity of cards they have.
+## Testing
+Currently testing is conducted manually since the stage of development is just setting up the infrastructure instead of focusing on features
 
-# Sources used during development (so far...):
+## How to use
+This mobile application currently has two dependencies:
+* Python
+* Kivy
+
+To install python, use the official website: https://www.python.org/downloads/
+
+After installing python, install kivy from the command line using the command:
+
+python -m pip install kivy[full]
+
+Note that this command may require extra privileges, which can be achieved by running the command prompt on Windows operating systems or using sudo on Linux operating systems.
+
+Having installed the required dependencies, clone this repository to your local machine.
+
+git clone https://github.com/rossrippee/digitalTradingBinder/
+
+Then, in the directory where you cloned this repository, issue the command
+
+python app.py
+
+As mentioned earlier, this project uses sqlite3, which is not connected to a server! This application is currently purely local to your machine. Therefore it is perfectly safe to make an account with a fake email and start exploring the application!
+
+## Sources used during development (so far...):
 * Tech With Tim (YouTube channel) Kivy Tutorials Python (Playlist): (https://www.youtube.com/watch?v=bMHK6NDVlCM&list=PLzMcBGfZo4-kSJVMyYeOQ8CXJ3z1k7gHn)
 * Codemy.com (YouTube channel) Using SQLite3 Database With Kivy - Python Kivy GUI Tutorial #55 (video): (https://www.youtube.com/watch?v=X2MkC1ru3cQ)

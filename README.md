@@ -50,7 +50,7 @@ After installing python, install kivy from the command line using the command:
 
 python -m pip install kivy[full]
 
-Note that this command may require extra privileges, which can be achieved by running the command prompt on Windows operating systems or using sudo on Linux operating systems.
+Note that this command may require extra privileges, which can be achieved by running the command prompt as an administrator on Windows operating systems or using sudo on Linux operating systems.
 
 Having installed the required dependencies, clone this repository to your local machine.
 

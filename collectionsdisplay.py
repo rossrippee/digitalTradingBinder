@@ -102,12 +102,12 @@ class CollectionsDisplay(Screen):
     def openCollection(self, gameName):
         """If the user successfully logs in, this function will make a dashboard screen and switch the display to that screen, passing in the account's username"""
         # This adds a collections screen to the screen manager
-        collectionsViewer = collectionviewer.CollectionViewer(name='collection_view')
+        collectionViewer = collectionviewer.CollectionViewer(name='collection_view')
         # This passes the account's username to the collections screen
-        collectionsViewer.setUsername(self.username)
-        collectionsViewer.setGame(gameName)
+        collectionViewer.setUsername(self.username)
+        collectionViewer.setGame(gameName)
         # This adds the dashboard display screen to the screen manager's screens
-        self.manager.add_widget(collectionsViewer)
+        self.manager.add_widget(collectionViewer)
         # This switches the screen to the new dashboard screen
         self.manager.current = 'collection_view'
         

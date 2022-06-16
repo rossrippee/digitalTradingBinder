@@ -220,7 +220,7 @@
 <CollectionViewer>:
 
 	instructions: instructions
-	cardContainer: cardContainer
+	collectionContainer: collectionContainer
 	collectionFilter: collectionFilter
 
 	GridLayout:
@@ -254,7 +254,7 @@
 				color: 0, 0, 1, 1
 
 		ScrollView:
-			id: cardContainer
+			id: collectionContainer
 			do_scroll_x: False
 			do_scroll_y: True
 
@@ -332,7 +332,40 @@
 			on_press: root.backToCollection()
 			color: 0, 0, 1, 1
 
-<DigimonCard>:
+
+<ViewOnlyCard>:
+
+	name: name
+	cardnumber: cardnumber
+	quantity: quantity
+
+	BoxLayout:
+		orientation: 'horizontal'
+		size_hint_y: None
+		height: 40
+		size_hint_x: .9
+		spacing: 10	
+
+		Label:
+			text: 'name'
+			id: name
+			size_hint_x: .5
+		
+		Label:
+			text: 'number'
+			id: cardnumber
+			size_hint_x: .15
+
+		Label:
+			text: 'Quantity'
+			size_hint_x: .05
+
+		Label: 
+			text: '0'
+			size_hint_x: .3
+			id: quantity
+
+<AddableCard>:
 
 	name: name
 	cardnumber: cardnumber

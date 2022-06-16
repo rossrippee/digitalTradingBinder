@@ -5,7 +5,7 @@ from kivy.uix.button import Button            # This lets us dynamically create 
 from kivy.uix.gridlayout import GridLayout    # This lets us create a grid that will bind other objects together
 import sqlite3                                # This is for python's built-in database manager
 import cardadder                              # This defines the card adder screen
-import digimoncard                            # This defines the visual representation of a digimon card
+import viewonlycard                           # This defines the visual representation of a digimon card whose quantity cannot be changed
 
 class CollectionViewer(Screen):
     """This defines the functionality of the collections screen, which will let the user view/edit their existing collections, add a new collection, or go back to the dashboard"""
@@ -45,17 +45,20 @@ class CollectionViewer(Screen):
     
     def build(self):
         """This is automatically called whenever the object is instantiated. It creates the display based on the definition found in the kv file and returns it"""
-        return CollectionsViewer()
+        return CollectionViewer()
     
     def setGame(self, gameName):
+        """This is called whenever a user makes a CollectionViewer so the game that cards should be displayed for will be known"""
         self.gameName = gameName
+        # After storing the game that we are adding cards for, the cards from that game should be loaded for the user
         self.viewAllCards()
     
     def setUsername(self, newUsername):
-        """This is called whenever a user views their collection from the dashboard so that their personal collections can be loaded"""
+        """This stores the user's username so that their personal collection can be loaded"""
         self.username = newUsername
 
     def viewAllCards(self):
+        """This adds all of the cards the user has associated with the selected game to the scroll view for the user"""
         connection = sqlite3.connect('account_db.db')
         # Create a cursor to be our middle-man with the connection
         cursor = connection.cursor()
@@ -63,20 +66,27 @@ class CollectionViewer(Screen):
         cursor.execute('SELECT cardname, cardset, quantity FROM userCards WHERE username="%s" AND game="%s" ORDER BY cardname ASC' % (self.username, self.gameName))
         # Grab the results of the query and store them in gameList
         self.gameList = cursor.fetchall()
+        # The result of a SELECT query is not a list, so its size is not immediately available to us. Therefore, we must do a separate query to know how many cards were returned
         self.listSize = cursor.execute("SELECT COUNT(*) FROM userCards").fetchone()[0]
         # Close the connection
         connection.close()
-        self.cardContainer.clear_widgets()
+        # This removes everything from the scroll view to avoid duplicate cards
+        self.collectionContainer.clear_widgets()
+        # This creates a grid layout which will contain all the card set names as buttons
         cardContainer = GridLayout(cols=1, spacing=50, size_hint_y=None)
+        # To avoid loading potentially thousands of cards at once, only the first 20 cards are loaded for speed and memory efficiency
         if self.listSize < 20:
             numToShow = self.listSize
         else:
             numToShow = 20
+        # Make a ViewOnlyCard to represent the cards that can be added by the user
         for i in range(numToShow):
-            newCard = digimoncard.DigimonCard()
+            newCard = viewonlycard.ViewOnlyCard()
             newCard.setName(self.gameList[i][0], self)
             newCard.setCardNumber(self.gameList[i][1])
             newCard.setQuantity(self.gameList[i][2])
             cardContainer.add_widget(newCard)
+        # Set the height of the grid layout so that the scroll view knows how much there is to scroll through when it is added
         cardContainer.height = 40 * (numToShow + 12)
-        self.cardContainer.add_widget(cardContainer)
+        # The grid layout full of buttons is added to the scroll view
+        self.collectionContainer.add_widget(cardContainer)

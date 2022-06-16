@@ -1,18 +1,22 @@
+# Kivy Imports
 import kivy                                   # The kivy library is not built into python
 from kivy.properties import ObjectProperty    # This lets us access values defined in the kv file
 from kivy.uix.screenmanager import Screen     # This lets us represent the possible displays as screens that can be held onto by a screen manager
+# Python Built-in Imports
 import sqlite3                                # This is for python's built-in database manager
+# Internal Module Imports
 import createaccount                          # This defines the create account screen
-import recoveryemail                          # This defines the recovery email screen (forgot my password)
 import dashboard                              # This defines the dashboard screen
+import recoveryemail                          # This defines the recovery email screen (forgot my password)
+
 
 class LogInDisplay(Screen):
     """This defines the functionality of the log in screen, which will let the user enter a username and password to attempt to login or give them the option to
     create a new account instead"""
     # These ObjectProperties will allow us to look at the properties of the objects defined in the kv file under the InitialDisplay definition
-    username = ObjectProperty(None)
-    password = ObjectProperty(None)
     instructions = ObjectProperty(None)
+    password = ObjectProperty(None)
+    username = ObjectProperty(None)
     
     def attemptLogin(self):
         """This is the code that will execute if someone presses the 'Log in' button on the initial display"""
@@ -113,11 +117,13 @@ Please try again or create a new account!'''
         self.instructions.color = r, g, b, 1
         
     def successfulAccountCreation(self):
+        """This will change the instructions text to let you know that the account was made successfully"""
         self.instructions.text = '''Account created successfully!
 Please log in with your new account.'''
         self.setInstructionsColor(0, 1, 0)
         
     def successfullySentRecoveryEmail(self):
+        """This will change the instructions text to let you know that a recovery email was sent successfully"""
         self.instructions.text = '''Recovery email sent successfully!
 Please check your email's inbox for the email and follow its instructions to reset your account's password.
 If you don't see it, please check your spam folder!'''

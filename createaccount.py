@@ -1,17 +1,20 @@
-import kivy                                                 # The kivy library is not built into python
-from kivy.properties import ObjectProperty                  # This lets us access values defined in the kv file
-from kivy.uix.screenmanager import Screen    # This lets us more easily manage a "super-screen" that contains all the other possible screens (log in, create account, etc.)
-import sqlite3                                              # This is for python's built-in database manager
-import re                                                   # This is for checking if the user gives a valid email string or not
+# Kivy Imports
+import kivy                                   # The kivy library is not built into python
+from kivy.properties import ObjectProperty    # This lets us access values defined in the kv file
+from kivy.uix.screenmanager import Screen     # This lets us more easily manage a "super-screen" that contains all the other possible screens (log in, create account, etc.)
+# Python Built-in Imports
+import re                                     # This is for checking if the user gives a valid email string or not
+import sqlite3                                # This is for python's built-in database manager
+
 
 class CreateAccountDisplay(Screen):
     """This defines the functionality of the create account screen, which will let the user enter a username and password to attempt to create a new account or give
     them the option to go back to the log in screen instead"""
-    # These ObjectProperties will allow us to look at the properties of the objects defined in the kv file under the InitialDisplay definition
-    username = ObjectProperty(None)
+    # These ObjectProperties will allow us to look at the properties of the objects defined in the kv file under the CreateAccountDisplay definition
     email = ObjectProperty(None)
-    password = ObjectProperty(None)
     instructions = ObjectProperty(None)
+    password = ObjectProperty(None)
+    username = ObjectProperty(None)
     # This ReturnReference will let us make references to the log in screen that created us
     ReturnReference = None
     

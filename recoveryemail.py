@@ -1,15 +1,17 @@
+# Kivy Imports
 import kivy                                   # The kivy library is not built into python
 from kivy.properties import ObjectProperty    # This lets us access values defined in the kv file
 from kivy.uix.screenmanager import Screen     # This lets us more easily manage a "super-screen" that contains all the other possible screens (log in, create account, etc.)
+# Python Built-in Imports
 import sqlite3                                # This is for python's built-in database manager
 
 class RecoveryEmailDisplay(Screen):
     """This defines the functionality of the recovery email screen, which will let the user enter a username and password to attempt to create a new account or give
     them the option to go back to the log in screen instead"""
-    # These ObjectProperties will allow us to look at the properties of the objects defined in the kv file under the InitialDisplay definition
-    username = ObjectProperty(None)
+    # These ObjectProperties will allow us to look at the properties of the objects defined in the kv file under the RecoveryEmailDisplay definition
     email = ObjectProperty(None)
     instructions = ObjectProperty(None)
+    username = ObjectProperty(None)
     # This ReturnReference will let us make references to the log in screen that created us
     ReturnReference = None
     
@@ -84,4 +86,5 @@ Please try again!'''
         self.instructions.color = r, g, b, 1
         
     def setReturnReference(self, returnReference):
+        """This will set a reference to the log in screen that created us"""
         self.ReturnReference = returnReference

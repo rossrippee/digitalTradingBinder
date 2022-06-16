@@ -1,12 +1,15 @@
+# Kivy Imports
 import kivy                                   # The kivy library is not built into python
 from kivy.properties import ObjectProperty    # This lets us access values defined in the kv file
 from kivy.uix.screenmanager import Screen     # This lets us represent the possible displays as screens that can be held onto by a screen manager
+# Python Built-in Imports
 import login                                  # This defines the log in screen
-import collectionscontainer
+# Internal Module Imports
+import collectionsdisplay                     # This defines the collections display screen
 
 class DashboardDisplay(Screen):
     """This defines the functionality of the dashboard screen, which will let the user view/edit their collection or log out"""
-    # This ObjectProperty will allow us to change the text of the dashboard to greet the user by their username
+    # This ObjectProperty will allow us to look at the properties of the instructions object defined in the kv file under the DashboardDisplay definition
     instructions = ObjectProperty(None)
     # This will let us keep track of the user's username during their session
     username = None
@@ -32,7 +35,7 @@ class DashboardDisplay(Screen):
     def newCollectionsScreen(self):
         """If the user successfully logs in, this function will make a dashboard screen and switch the display to that screen, passing in the account's username"""
         # This adds a collections screen to the screen manager
-        collectionsDisplay = collectionscontainer.CollectionsDisplay(name='collections')
+        collectionsDisplay = collectionsdisplay.CollectionsDisplay(name='collections')
         # This passes the account's username to the collections screen
         collectionsDisplay.setUsername(self.username)
         # This adds the dashboard display screen to the screen manager's screens

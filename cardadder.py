@@ -148,10 +148,10 @@ class CardAdder(Screen):
         
     def plurality(self, amount):
         """This is used to determine whether a singular 'copy' should be printed or plural 'copies'"""
-            if int(amount) == 1:
-                return 'copy'
-            else:
-                return 'copies'
+        if int(amount) == 1:
+            return 'copy'
+        else:
+            return 'copies'
             
     def setGame(self, gameName):
         """This is called whenever a user makes a CardAdder so the game that cards should be added for will be known"""

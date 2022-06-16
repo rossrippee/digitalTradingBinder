@@ -75,6 +75,10 @@ class CollectionViewer(Screen):
         # This creates a grid layout which will contain all the card set names as buttons
         cardContainer = GridLayout(cols=1, spacing=50, size_hint_y=None)
         # To avoid loading potentially thousands of cards at once, only the first 20 cards are loaded for speed and memory efficiency
+        try:
+            value = self.gameList[0][0]
+        except IndexError as error:
+            return
         if self.listSize < 20:
             numToShow = self.listSize
         else:

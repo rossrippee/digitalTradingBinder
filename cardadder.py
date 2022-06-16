@@ -93,7 +93,7 @@ class CardAdder(Screen):
             newCard.setName(cardList[i]['name'], self)
             newCard.setCardNumber(cardList[i]['cardnumber'])
             cardContainer.add_widget(newCard)
-        cardContainer.height = 40 * numToShow
+        cardContainer.height = 40 * (numToShow + 24)
         self.cardContainer.add_widget(cardContainer)
         
     def filterByName(self):

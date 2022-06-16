@@ -7,7 +7,7 @@ import sqlite3                                # This is for python's built-in da
 import cardadder                              # This defines the card adder screen
 import digimoncard                            # This defines the visual representation of a digimon card
 
-class CollectionsViewer(Screen):
+class CollectionViewer(Screen):
     """This defines the functionality of the collections screen, which will let the user view/edit their existing collections, add a new collection, or go back to the dashboard"""
     # This ObjectProperty will allow us to add buttons representing collections to the user's dashboard based on their own personal collections
     collectionContainer = ObjectProperty(None)

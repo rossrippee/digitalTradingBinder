@@ -1,6 +1,6 @@
 # Digital Trading Binder
 ## What is this?
-### This is my first kivy project and my first major personal project since graduating
+### This is my first python project and my first major personal project since graduating
 Post-graduation (May 7th), I have made it my goal to learn python since I did not take electives at my university that taught the language. After using many tutorials to learn the fundamentals, I decided to think of a fun project to practice my new skills.
 
 ### My idea:
@@ -31,18 +31,21 @@ Since I want this to be an opportunity to hone my skills developing an applicati
 * A 'log in' screen, 'create account' screen, and 'forgot password' screen for associating your collection with a username
 * A 'dashboard' screen where you interact with the app. Currently, it only gives you the option of viewing/editing your collection
 * A 'collections' screen that displays the different collections you currently have stored (for conveniently separating your cards based on which game they're from). It also gives you the option of adding a new collection. The collections can be tapped to view or edit the cards stored in them
-* A 'collection viewer' screen that displays the cards stored in your selected collection. It can be searched through or filtered by set. There is also a button for adding cards (to be implemented)
+* A 'collection viewer' screen that displays the cards stored in your selected collection. It can be searched through or filtered by set. There is also a button for adding cards
+* A 'card adder' screen that displays a list of all the Digimon TCG cards currently in the game. It can be searched through or filtered by set. Each card has a button to add that card with the displayed quantity to your collection. They also have buttons to change the displayed quantity if you want to add multiple copies with only one press.
 
 ## Known issues
 * The account creation screen isn't good at detecting whether or not a fake email address has been given. The regular expression needs tweaking
+* Adding a card to your collection that is already in your collection duplicates the entry rather than updating the quantity stored
 
 ## Testing
 Currently testing is conducted manually since the stage of development is just setting up the infrastructure instead of focusing on features
 
 ## How to use
-This mobile application currently has two dependencies:
+This mobile application currently has three dependencies:
 * Python
 * Kivy
+* natsort
 
 To install python, use the official website: https://www.python.org/downloads/
 
@@ -51,6 +54,10 @@ After installing python, install kivy from the command line using the command:
 python -m pip install kivy[full]
 
 Note that this command may require extra privileges, which can be achieved by running the command prompt as an administrator on Windows operating systems or using sudo on Linux operating systems.
+
+To install natsort, simply issue the command:
+
+pip install natsort
 
 Having installed the required dependencies, clone this repository to your local machine.
 

@@ -67,7 +67,7 @@ class CollectionViewer(Screen):
         # Grab the results of the query and store them in gameList
         self.gameList = cursor.fetchall()
         # The result of a SELECT query is not a list, so its size is not immediately available to us. Therefore, we must do a separate query to know how many cards were returned
-        self.listSize = cursor.execute("SELECT COUNT(*) FROM userCards WHERE username="%s" AND game="%s" ORDER BY cardname ASC' % (self.username, self.gameName)").fetchone()[0]
+        self.listSize = cursor.execute('SELECT COUNT(*) FROM userCards WHERE username="%s" AND game="%s" ORDER BY cardname ASC' % (self.username, self.gameName)).fetchone()[0]
         # Close the connection
         connection.close()
         # This removes everything from the scroll view to avoid duplicate cards
